@@ -1,0 +1,21 @@
+from parse_tree import VariableParseTree, NumberParseTree, AssignmentParseTree, MultiplicationParseTree, SequentialCompositionParseTree
+
+x = VariableParseTree('x')
+y = VariableParseTree('y')
+two = NumberParseTree(2)
+assignment1 = AssignmentParseTree(x, two)
+assignment2 = AssignmentParseTree(y, two)
+expression1 = MultiplicationParseTree(x, x)
+expression2 = MultiplicationParseTree(y, y)
+assignment3 = AssignmentParseTree(x, expression1)
+assignment4 = AssignmentParseTree(y, expression2)
+expression3 = MultiplicationParseTree(x, y)
+assignment5 = AssignmentParseTree(x, expression3)
+program1 = SequentialCompositionParseTree(assignment1, assignment3)
+program2 = SequentialCompositionParseTree(program1, assignment3)
+program3 = SequentialCompositionParseTree(program2, assignment3)
+program4 = SequentialCompositionParseTree(program3, assignment2)
+program5 = SequentialCompositionParseTree(program4, assignment4)
+program6 = SequentialCompositionParseTree(program5, assignment5)
+
+print(program6)
